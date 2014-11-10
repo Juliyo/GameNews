@@ -45,7 +45,7 @@ public class MainActivity extends ActionBarActivity
         mTitle = getTitle();
         decorView =  this.getSupportActionBar();
         
-        // Set up the drawe
+        // Set up the drawer. HAHAHAHAH
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout),MainActivity.this);
