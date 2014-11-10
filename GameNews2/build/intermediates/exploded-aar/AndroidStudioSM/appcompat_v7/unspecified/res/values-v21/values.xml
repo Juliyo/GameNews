@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base_text.xml -->
+    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base_text.xml -->
     <eat-comment />
 
     <style name="Base.TextAppearance.AppCompat" parent="android:TextAppearance.Material" />
@@ -29,13 +29,13 @@
     <style name="Base.TextAppearance.AppCompat.Large" parent="android:TextAppearance.Material.Large" />
 
     <style name="Base.TextAppearance.AppCompat.Large.Inverse" parent="android:TextAppearance.Material.Large.Inverse" />
-    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base.xml -->
+    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base.xml -->
     <eat-comment />
 
     <style name="Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Large" parent="android:TextAppearance.Material.Widget.PopupMenu.Large"></style>
 
     <style name="Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Small" parent="android:TextAppearance.Material.Widget.PopupMenu.Small"></style>
-    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base_text.xml -->
+    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base_text.xml -->
     <eat-comment />
 
     <style name="Base.TextAppearance.AppCompat.Medium" parent="android:TextAppearance.Material.Medium" />
@@ -43,13 +43,13 @@
     <style name="Base.TextAppearance.AppCompat.Medium.Inverse" parent="android:TextAppearance.Material.Medium.Inverse" />
 
     <style name="Base.TextAppearance.AppCompat.Menu" parent="android:TextAppearance.Material.Menu" />
-    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base.xml -->
+    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base.xml -->
     <eat-comment />
 
     <style name="Base.TextAppearance.AppCompat.SearchResult.Subtitle" parent="@android:TextAppearance.Material.SearchResult.Subtitle"></style>
 
     <style name="Base.TextAppearance.AppCompat.SearchResult.Title" parent="@android:TextAppearance.Material.SearchResult.Title"></style>
-    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base_text.xml -->
+    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base_text.xml -->
     <eat-comment />
 
     <style name="Base.TextAppearance.AppCompat.Small" parent="android:TextAppearance.Material.Small" />
@@ -59,7 +59,7 @@
     <style name="Base.TextAppearance.AppCompat.Subhead" parent="android:TextAppearance.Material.Subhead" />
 
     <style name="Base.TextAppearance.AppCompat.Title" parent="android:TextAppearance.Material.Title" />
-    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base.xml -->
+    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base.xml -->
     <eat-comment />
 
     <style name="Base.TextAppearance.AppCompat.Widget.ActionBar.Menu" parent="android:TextAppearance.Material.Widget.ActionBar.Menu"></style>
@@ -79,17 +79,17 @@
     <style name="Base.TextAppearance.AppCompat.Widget.PopupMenu.Large" parent="android:TextAppearance.Material.Widget.PopupMenu.Large"></style>
 
     <style name="Base.TextAppearance.AppCompat.Widget.PopupMenu.Small" parent="android:TextAppearance.Material.Widget.PopupMenu.Small"></style>
-    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base_text.xml -->
+    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base_text.xml -->
     <eat-comment />
 
     <style name="Base.TextAppearance.AppCompat.Widget.Switch" parent="android:TextAppearance.Material.Button" />
-    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base.xml -->
+    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base.xml -->
     <eat-comment />
 
     <style name="Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle" parent="android:TextAppearance.Material.Widget.ActionBar.Subtitle"></style>
 
     <style name="Base.TextAppearance.Widget.AppCompat.Toolbar.Title" parent="android:TextAppearance.Material.Widget.ActionBar.Title"></style>
-    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-v21/themes_base.xml -->
+    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-v21/themes_base.xml -->
     <eat-comment />
 
     <style name="Base.Theme.AppCompat" parent="Base.V21.Theme.AppCompat" />
@@ -279,7 +279,7 @@
         <item name="android:colorControlActivated">?attr/colorControlActivated</item>
         <item name="android:colorControlHighlight">?attr/colorControlHighlight</item>
     </style>
-    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base.xml -->
+    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-v21/styles_base.xml -->
     <eat-comment />
 
     <style name="Base.Widget.AppCompat.ActionBar.TabText" parent="android:Widget.Material.ActionBar.TabText"></style>
@@ -345,7 +345,7 @@
     </style>
 
     <style name="Base.Widget.AppCompat.Toolbar.Button.Navigation" parent="android:Widget.Material.Toolbar.Button.Navigation"></style>
-    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-v21/themes_base.xml -->
+    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-v21/themes_base.xml -->
     <eat-comment />
 
     <style name="Platform.AppCompat" parent="android:Theme.Material">

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-v11/styles_base_text.xml -->
+    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-v11/styles_base_text.xml -->
     <eat-comment />
 
     <style name="Base.TextAppearance.AppCompat.Inverse">
@@ -31,7 +31,7 @@
         <item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
         <item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
     </style>
-    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-v11/themes_base.xml -->
+    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-v11/themes_base.xml -->
     <eat-comment />
 
     <style name="Base.Theme.AppCompat" parent="Base.V11.Theme.AppCompat">
@@ -164,7 +164,7 @@
         <item name="colorSwitchThumbNormal">@color/switch_thumb_normal_material_light</item>
         <item name="switchStyle">@style/Widget.AppCompat.CompoundButton.Switch</item>
     </style>
-    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-v11/styles_base.xml -->
+    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-v11/styles_base.xml -->
     <eat-comment />
 
     <style name="Base.Widget.AppCompat.ProgressBar" parent="android:Widget.Holo.ProgressBar"></style>
@@ -176,7 +176,7 @@
         <item name="android:dropDownSelector">?attr/listChoiceBackgroundIndicator</item>
         <item name="android:popupBackground">@drawable/abc_popup_background_mtrl_mult</item>
     </style>
-    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-v11/themes_base.xml -->
+    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-v11/themes_base.xml -->
     <eat-comment />
 
     <style name="Platform.AppCompat" parent="android:Theme.Holo">
