@@ -56,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/GameNews2/src/jat/studio/gamenews2/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.35051546" vertical-offset="357" max-vertical-offset="4318">
-              <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+              <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -2188,7 +2188,11 @@
       <created>1415642022813</created>
       <updated>1415642022813</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="pruebas">
+      <created>1415642843566</created>
+      <updated>1415642843566</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2241,7 +2245,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="q pasa loco primer commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="q pasa loco primer commit" />
+    <MESSAGE value="pruebas" />
+    <option name="LAST_COMMIT_MESSAGE" value="pruebas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2521,7 +2526,7 @@
     <entry file="file://$PROJECT_DIR$/GameNews2/src/jat/studio/gamenews2/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35051546" vertical-offset="357" max-vertical-offset="4318">
-          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+          <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
           <folding />
         </state>
       </provider>
