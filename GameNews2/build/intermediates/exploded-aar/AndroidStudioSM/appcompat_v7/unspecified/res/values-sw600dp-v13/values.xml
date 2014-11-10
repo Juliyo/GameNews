@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-sw600dp/dimens.xml -->
+    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-sw600dp/dimens.xml -->
     <eat-comment />
 
     <dimen name="abc_action_bar_default_height_material">64dp</dimen>
     <dimen name="abc_action_bar_default_padding_material">4dp</dimen>
-    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-sw600dp/config.xml -->
+    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-sw600dp/config.xml -->
     <eat-comment />
 
     <dimen name="abc_config_prefDialogWidth">580dp</dimen>
-    <!-- From: file:/C:/Users/Toni/Documents/AndroidStudioSM/appcompat_v7/res/values-sw600dp/dimens.xml -->
+    <!-- From: file:/C:/Users/Julio/AndroidStudioSM/appcompat_v7/res/values-sw600dp/dimens.xml -->
     <eat-comment />
 
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
