@@ -6,6 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
 import java.util.ArrayList;
 
 public class FragmentNoticias extends Fragment{
@@ -15,11 +18,17 @@ public class FragmentNoticias extends Fragment{
 		
 	}
 
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 		View view=null;
 		view = inflater.inflate(R.layout.fragment_noticias, container,false);
         list_titles=new ArrayList<String>();
         AsyncTask task=new ProgressTask(this.getActivity().getApplicationContext(),"http://game-news.url.ph/feed/",this.getView()).execute();
+
+        ArrayAdapter<String> adaptador=new ArrayAdapter<String>(getActivity(),R.layout.fragment_noticias,this.list_titles);
+        ListView list_titles=(ListView)view.findViewById(R.id.listView);
+        list_titles.setAdapter(adaptador);
 
 		return view;
 	} 

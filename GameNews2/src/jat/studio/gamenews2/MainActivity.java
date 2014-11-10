@@ -84,7 +84,7 @@ public class MainActivity extends ActionBarActivity
             {
             	menuNoticias.setTextColor(getResources().getColor(R.color.White));
             	android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            	FragmentNoticias frg = new FragmentNoticias(MainActivity.this);
+            	FragmentNoticias frg = new FragmentNoticias();
             	ft.replace(R.id.fragment_container, frg);
             	ft.commit();
             	cambiaColor("menuNoticias");

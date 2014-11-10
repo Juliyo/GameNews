@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -53,11 +57,35 @@ public class ProgressTask extends AsyncTask<String,Void,Boolean>{
             url = new URL(str_url_rss);
             InputStream in=url.openStream();
 
+            if(in!=null){
+                XmlPullParserFactory parserCreator=null;
+                parserCreator=XmlPullParserFactory.newInstance();
+                XmlPullParser parser;
+                parser=parserCreator.newPullParser();
+                parser.setInput(in,null);
+                int parserEvent=parser.getEventType();
 
+                while(parserEvent != XmlPullParser.END_DOCUMENT) {
+                    switch (parserEvent) {
+                        case XmlPullParser.START_TAG:
+                            String tag = parser.getName();
+                            if (tag.equalsIgnoreCase("title")) {
+                                String title = parser.nextText();
+                                FragmentNoticias.list_titles.add(title);
+                            }
+                            break;
+                    }//fin del switch
+                    parserEvent = parser.next();
+                }//fin del while
+                }else{
+                return false;
+            }
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (XmlPullParserException e) {
             e.printStackTrace();
         }
 
