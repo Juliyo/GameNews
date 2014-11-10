@@ -29,8 +29,9 @@ public class FragmentNoticias extends Fragment{
 		return view;
 	}
     public static void mostrarLista(Context context){
-        ArrayAdapter<String> adaptador=new ArrayAdapter<String>(context,R.layout.fragment_noticias,FragmentNoticias.list_titles);
+        ArrayAdapter<String> adaptador=new ArrayAdapter<String>(context,android.R.layout.simple_list_item_1,FragmentNoticias.list_titles);
         ListView list_titles=(ListView)view.findViewById(R.id.listView);
         list_titles.setAdapter(adaptador);
+
     }
 }
