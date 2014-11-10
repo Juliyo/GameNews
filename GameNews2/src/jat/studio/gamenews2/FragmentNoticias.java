@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -29,10 +30,11 @@ public class FragmentNoticias extends Fragment{
 		return view;
 	}
     public static void mostrarLista(Context context){
-        ArrayAdapter<String> adaptador=new ArrayAdapter<String>(context,android.R.layout.simple_list_item_1,FragmentNoticias.list_titles);
-        ListView list_titles=(ListView)view.findViewById(R.id.listView);
+        ArrayAdapter<String> adaptador=new ArrayAdapter<String>(context,R.layout.pruebalista1,FragmentNoticias.list_titles);
 
+        ListView list_titles=(ListView)view.findViewById(R.id.listView);
         list_titles.setAdapter(adaptador);
+
 
     }
 }

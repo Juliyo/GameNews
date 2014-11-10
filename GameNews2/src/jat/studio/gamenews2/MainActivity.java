@@ -57,7 +57,10 @@ public class MainActivity extends ActionBarActivity
         menuNoticias.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape2));
         menuNoticias.setTextColor(getResources().getColor(R.color.White));
         decorView.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape2));
-        
+        android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        FragmentNoticias frg = new FragmentNoticias();
+        ft.replace(R.id.fragment_container, frg);
+        ft.commit();
         
         
         //Listener de Galeria
