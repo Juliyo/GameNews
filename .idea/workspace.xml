@@ -22,7 +22,10 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: jat.studio.gamenews2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d988c6d0-4ec6-4fe2-a1cb-5dc4b63efce1" name="Default" comment="" />
+    <list default="true" id="d988c6d0-4ec6-4fe2-a1cb-5dc4b63efce1" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameNews2/src/jat/studio/gamenews2/MainActivity.java" afterPath="$PROJECT_DIR$/GameNews2/src/jat/studio/gamenews2/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="AndroidStudioSM.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,8 +55,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GameNews2/src/jat/studio/gamenews2/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58419245" vertical-offset="306" max-vertical-offset="4318">
-              <caret line="52" column="63" selection-start-line="52" selection-start-column="63" selection-end-line="52" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.35051546" vertical-offset="357" max-vertical-offset="4318">
+              <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -2517,8 +2520,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GameNews2/src/jat/studio/gamenews2/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58419245" vertical-offset="306" max-vertical-offset="4318">
-          <caret line="52" column="63" selection-start-line="52" selection-start-column="63" selection-end-line="52" selection-end-column="63" />
+        <state vertical-scroll-proportion="0.35051546" vertical-offset="357" max-vertical-offset="4318">
+          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
           <folding />
         </state>
       </provider>
