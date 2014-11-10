@@ -41,6 +41,7 @@ public class ProgressTask extends AsyncTask<String,Void,Boolean>{
             if(mView!=null){
                 circulo.setVisibility(View.INVISIBLE);
                 FragmentNoticias.mostrarLista(context);
+
             }
         }else{
             if(mView!=null){
