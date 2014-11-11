@@ -1,5 +1,6 @@
 package jat.studio.gamenews2;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -24,12 +25,12 @@ import java.net.URL;
  */
 public class ProgressTask extends AsyncTask<String,Void,Boolean>{
     private String str_url_rss;
-    private Context context;
+    private Activity activity;
     private View mView;
     private ProgressBar circulo;
 
-    public ProgressTask(Context c, String url_rss, View viewNoticias) {
-        this.context=c;
+    public ProgressTask(Activity c, String url_rss, View viewNoticias) {
+        this.activity=c;
         this.str_url_rss=url_rss;
         mView=viewNoticias;
     }
@@ -43,13 +44,13 @@ public class ProgressTask extends AsyncTask<String,Void,Boolean>{
         if(success){
             if(mView!=null){
                 circulo.setVisibility(View.INVISIBLE);
-                FragmentNoticias.mostrarLista(context);
+                FragmentNoticias.mostrarLista(activity);
 
             }
         }else{
             if(mView!=null){
                 circulo.setVisibility(View.INVISIBLE);
-                Toast.makeText(context,"Error de conexion",Toast.LENGTH_LONG).show();
+
             }
         }
 
@@ -72,34 +73,41 @@ public class ProgressTask extends AsyncTask<String,Void,Boolean>{
                 boolean first=true;
 
                 while(parserEvent != XmlPullParser.END_DOCUMENT) {
-                    if(first==false){
+
                         switch (parserEvent) {
                             case XmlPullParser.START_TAG:
                                 String tag = parser.getName();
-                                if (tag.equalsIgnoreCase("title")) {
-                                    String title = parser.nextText();
-                                    FragmentNoticias.noticia.add(new Noticia(title,null,null));
-                                }
-                                if(tag.equalsIgnoreCase("description")){
-                                    String description;
-                                    description=parser.nextText();
-                                    Document doc= Jsoup.parse(description);
-                                    Elements metaImg=doc.select("img");
-                                    String images=metaImg.attr("src");
-                                    if(images.length()!=0){
-                                        FragmentNoticias.noticia.get(FragmentNoticias.noticia.size()-1).setImage(images);
+
+                                    if (tag.equalsIgnoreCase("title")) {
+                                        if(first==false){
+                                            String title = parser.nextText();
+                                            FragmentNoticias.noticia.add(new Noticia(title,null,null));
+
+                                        }
                                     }
-                                    Elements metaDesc=doc.select("div").remove();
-                                    String desc=metaDesc.toString();
-                                    if(desc.length()!=0){
-                                        FragmentNoticias.noticia.get(FragmentNoticias.noticia.size()-1).setDescription(desc);
+                                    if(tag.equalsIgnoreCase("description")){
+                                        if(first==false){
+                                            String description;
+                                            description=parser.nextText();
+                                            Document doc= Jsoup.parse(description);
+                                            Elements metaImg=doc.select("img");
+                                            String images=metaImg.attr("src");
+                                            if(images.length()!=0){
+                                                FragmentNoticias.noticia.get(FragmentNoticias.noticia.size()-1).setImage(images);
+                                            }
+                                            Elements metaDesc=doc.select("desc");
+                                            String descripcion=metaDesc.attr("src");
+                                            FragmentNoticias.noticia.get(FragmentNoticias.noticia.size()-1).setDescription(descripcion);
+                                        }
+                                        first=false;
                                     }
-                                }
+
+
                                 break;
                         }//fin del switch
-                    }
 
-                    first=false;
+
+
                     parserEvent = parser.next();
                 }//fin del while
                 }else{
