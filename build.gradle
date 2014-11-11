@@ -2,13 +2,12 @@
 buildscript {
     repositories {
         mavenCentral()
-        maven {
-            url "https://raw.github.com/embarkmobile/zxing-android-minimal/mvn-repo/maven-repository/"
-        }
+        //maven {
+            //url "https://raw.github.com/embarkmobile/zxing-android-minimal/mvn-repo/maven-repository/"
+        //}
 
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:0.12.2'
-
     }
 }

@@ -15,10 +15,15 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.abhi.barcode.frag.libv2.BarcodeFragment;
+import com.abhi.barcode.frag.libv2.IScanResultHandler;
+import com.abhi.barcode.frag.libv2.ScanResult;
 
 
 public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, IScanResultHandler {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -29,6 +34,7 @@ public class MainActivity extends ActionBarActivity
     private Button menuRevista;
     private Button menuQR;
     private ActionBar decorView;
+    private BarcodeFragment fragment;
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
@@ -113,13 +119,15 @@ public class MainActivity extends ActionBarActivity
         menuQR.setOnClickListener(new OnClickListener() {
             public void onClick(View v)
             {
-            	
+
             	menuQR.setTextColor(getResources().getColor(R.color.White));
             	android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             	FragmentQr frg = new FragmentQr();
             	ft.replace(R.id.fragment_container, frg);
             	ft.commit();
             	cambiaColor("menuQR");
+                fragment = (BarcodeFragment)getSupportFragmentManager().findFragmentById(R.id.sample);
+                //fragment.setScanResultHandler(MainActivity.this);
             	
             }
            
@@ -127,7 +135,15 @@ public class MainActivity extends ActionBarActivity
         
        
     }
-    
+    @Override
+    public void scanResult(ScanResult result) {
+        //btn.setEnabled(true);
+        Toast.makeText(MainActivity.this, result.getRawResult().getText(), Toast.LENGTH_LONG).show();
+    }
+
+    public void scanAgain(View v){
+        //fragment.restart();
+    }
     public void cambiaColor(String boton){
     	mNavigationDrawerFragment.cierraDrawer();
     	switch(boton){
