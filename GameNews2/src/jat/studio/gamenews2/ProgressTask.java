@@ -53,7 +53,6 @@ public class ProgressTask extends AsyncTask<String,Void,Boolean>{
             }
         }
 
-
     }
     @Override
     protected Boolean doInBackground(final String... strings) {

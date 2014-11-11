@@ -116,9 +116,9 @@ public class MainActivity extends ActionBarActivity
             	
             	menuQR.setTextColor(getResources().getColor(R.color.White));
             	android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            	/*FragmentGaleria frg = new FragmentGaleria(MainActivity.this);
+            	FragmentQr frg = new FragmentQr();
             	ft.replace(R.id.fragment_container, frg);
-            	ft.commit();*/
+            	ft.commit();
             	cambiaColor("menuQR");
             	
             }

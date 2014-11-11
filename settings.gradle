@@ -1,3 +1,4 @@
 include ':GameNews2'
 include ':appcompat_v7'
 include ':PanoramaGL'
+include ':zxinglib-michalu'
