@@ -68,28 +68,38 @@ public class ProgressTask extends AsyncTask<String,Void,Boolean>{
                 parser=parserCreator.newPullParser();
                 parser.setInput(in,null);
                 int parserEvent=parser.getEventType();
+                //Para evitar coger el primer title Game News
+                boolean first=true;
 
                 while(parserEvent != XmlPullParser.END_DOCUMENT) {
-                    switch (parserEvent) {
-                        case XmlPullParser.START_TAG:
-                            String tag = parser.getName();
-                            if (tag.equalsIgnoreCase("title")) {
-                                String title = parser.nextText();
-                                FragmentNoticias.list_titles.add(title);
-                            }
-                            if(tag.equalsIgnoreCase("description")){
-                                String description;
-                                description=parser.nextText();
-                                Document doc= Jsoup.parse(description);
-                                Elements metaElems=doc.select("img");
-                                String images=metaElems.attr("src");
-                                if(images.length()!=0){
-                                    FragmentNoticias.list_description.add(images);
+                    if(first==false){
+                        switch (parserEvent) {
+                            case XmlPullParser.START_TAG:
+                                String tag = parser.getName();
+                                if (tag.equalsIgnoreCase("title")) {
+                                    String title = parser.nextText();
+                                    FragmentNoticias.noticia.add(new Noticia(title,null,null));
                                 }
+                                if(tag.equalsIgnoreCase("description")){
+                                    String description;
+                                    description=parser.nextText();
+                                    Document doc= Jsoup.parse(description);
+                                    Elements metaImg=doc.select("img");
+                                    String images=metaImg.attr("src");
+                                    if(images.length()!=0){
+                                        FragmentNoticias.noticia.get(FragmentNoticias.noticia.size()-1).setImage(images);
+                                    }
+                                    Elements metaDesc=doc.select("div").remove();
+                                    String desc=metaDesc.toString();
+                                    if(desc.length()!=0){
+                                        FragmentNoticias.noticia.get(FragmentNoticias.noticia.size()-1).setDescription(desc);
+                                    }
+                                }
+                                break;
+                        }//fin del switch
+                    }
 
-                            }
-                            break;
-                    }//fin del switch
+                    first=false;
                     parserEvent = parser.next();
                 }//fin del while
                 }else{
