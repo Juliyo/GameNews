@@ -18,30 +18,51 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 public class FragmentNoticias extends Fragment{
-    public static ArrayList<Noticia> noticia;
-    private static View view;
+    private ArrayList<Noticia> noticia;
+    private View view;
+    private ListView listaNoticias;
 
-	public FragmentNoticias(){
+
+    public FragmentNoticias(){
 
 		
 	}
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 
-		view = inflater.inflate(R.layout.fragment_noticias, container,false);
-        noticia=new ArrayList<Noticia>();
-        AsyncTask task=new ProgressTask(getActivity(),"http://game-news.url.ph/feed/",view).execute();
+                view = inflater.inflate(R.layout.fragment_noticias, container,false);
+
+                noticia=new ArrayList<Noticia>();
+                AsyncTask task=new ProgressTask(getActivity(),"http://game-news.url.ph/feed/",view,this).execute();
+
 
 		return view;
 	}
-    public static void mostrarLista(Activity activity){
-        AdaptadorNoticias adaptador=new AdaptadorNoticias(activity);
-        ListView listaNoticias=(ListView)view.findViewById(R.id.listView);
-        listaNoticias.setAdapter(adaptador);
+    public void mostrarLista(Activity activity){
+
+
+                AdaptadorNoticias adaptador=new AdaptadorNoticias(activity);
+                listaNoticias=(ListView)view.findViewById(R.id.listView);
+                listaNoticias.setAdapter(adaptador);
+
 
 
     }
-    private static class AdaptadorNoticias extends ArrayAdapter{
+
+    public void setImage(String image) {
+        noticia.get(noticia.size()-1).setImage(image);
+    }
+
+    public void setDescription(String description) {
+        noticia.get(noticia.size()-1).setDescription(description);
+    }
+
+    public void setTitle(String title) {
+        noticia.add(new Noticia());
+        noticia.get(noticia.size()-1).setTitle(title);
+    }
+
+    private class AdaptadorNoticias extends ArrayAdapter{
         private Activity context;
 
         private AdaptadorNoticias(Activity context){

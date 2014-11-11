@@ -8,13 +8,10 @@ public class Noticia {
     private String image;
     private String description;
 
-    public Noticia(String title, String image, String description){
-        this.title=title;
-        this.image=image;
-        this.description=description;
+    public Noticia(){
+
 
     }
-
 
     public String getTitle() {
         return title;
@@ -34,5 +31,9 @@ public class Noticia {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

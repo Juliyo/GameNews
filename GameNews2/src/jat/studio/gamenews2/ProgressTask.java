@@ -28,11 +28,13 @@ public class ProgressTask extends AsyncTask<String,Void,Boolean>{
     private Activity activity;
     private View mView;
     private ProgressBar circulo;
+    private FragmentNoticias fragment;
 
-    public ProgressTask(Activity c, String url_rss, View viewNoticias) {
+    public ProgressTask(Activity c, String url_rss, View viewNoticias,FragmentNoticias fragment) {
         this.activity=c;
         this.str_url_rss=url_rss;
         mView=viewNoticias;
+        this.fragment=fragment;
     }
     protected void onPreExecute(){
         if(mView!=null){
@@ -44,7 +46,7 @@ public class ProgressTask extends AsyncTask<String,Void,Boolean>{
         if(success){
             if(mView!=null){
                 circulo.setVisibility(View.INVISIBLE);
-                FragmentNoticias.mostrarLista(activity);
+                fragment.mostrarLista(activity);
 
             }
         }else{
@@ -81,7 +83,9 @@ public class ProgressTask extends AsyncTask<String,Void,Boolean>{
                                     if (tag.equalsIgnoreCase("title")) {
                                         if(first==false){
                                             String title = parser.nextText();
-                                            FragmentNoticias.noticia.add(new Noticia(title,null,null));
+
+                                            fragment.setTitle(title);
+
 
                                         }
                                     }
@@ -93,11 +97,11 @@ public class ProgressTask extends AsyncTask<String,Void,Boolean>{
                                             Elements metaImg=doc.select("img");
                                             String images=metaImg.attr("src");
                                             if(images.length()!=0){
-                                                FragmentNoticias.noticia.get(FragmentNoticias.noticia.size()-1).setImage(images);
+                                                fragment.setImage(images);
                                             }
                                             Elements metaDesc=doc.select("desc");
                                             String descripcion=metaDesc.attr("src");
-                                            FragmentNoticias.noticia.get(FragmentNoticias.noticia.size()-1).setDescription(descripcion);
+                                            fragment.setDescription(descripcion);
                                         }
                                         first=false;
                                     }
@@ -125,4 +129,6 @@ public class ProgressTask extends AsyncTask<String,Void,Boolean>{
 
         return true;
     }
+
+
 }
