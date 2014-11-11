@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 public class FragmentNoticias extends Fragment{
 	public static ArrayList<String> list_titles;
+    public static ArrayList<String> list_description;
     private static View view;
 
 	public FragmentNoticias(){
@@ -25,6 +26,7 @@ public class FragmentNoticias extends Fragment{
 
 		view = inflater.inflate(R.layout.fragment_noticias, container,false);
         list_titles=new ArrayList<String>();
+        list_description=new ArrayList<String>();
         AsyncTask task=new ProgressTask(this.getActivity().getApplicationContext(),"http://game-news.url.ph/feed/",view).execute();
 
 		return view;

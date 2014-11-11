@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -74,6 +77,17 @@ public class ProgressTask extends AsyncTask<String,Void,Boolean>{
                             if (tag.equalsIgnoreCase("title")) {
                                 String title = parser.nextText();
                                 FragmentNoticias.list_titles.add(title);
+                            }
+                            if(tag.equalsIgnoreCase("description")){
+                                String description;
+                                description=parser.nextText();
+                                Document doc= Jsoup.parse(description);
+                                Elements metaElems=doc.select("img");
+                                String images=metaElems.attr("src");
+                                if(images.length()!=0){
+                                    FragmentNoticias.list_description.add(images);
+                                }
+
                             }
                             break;
                     }//fin del switch
