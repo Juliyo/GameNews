@@ -10,8 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
@@ -40,12 +43,9 @@ public class FragmentNoticias extends Fragment{
 	}
     public void mostrarLista(Activity activity){
 
-
                 AdaptadorNoticias adaptador=new AdaptadorNoticias(activity);
                 listaNoticias=(ListView)view.findViewById(R.id.listView);
                 listaNoticias.setAdapter(adaptador);
-
-
 
     }
 
@@ -77,7 +77,8 @@ public class FragmentNoticias extends Fragment{
             titulo.setText(noticia.get(position).getTitle());
             TextView descripcion=(TextView)item.findViewById(R.id.textViewDesc);
             descripcion.setText(noticia.get(position).getDescription());
-
+            ImageView image=(ImageView)item.findViewById(R.id.imageView);
+            Picasso.with(context).load(noticia.get(position).getImage()).into(image);
             return(item);
 
         }
