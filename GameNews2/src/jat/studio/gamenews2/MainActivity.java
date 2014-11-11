@@ -3,6 +3,7 @@ package jat.studio.gamenews2;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -20,6 +21,9 @@ import android.widget.Toast;
 import com.abhi.barcode.frag.libv2.BarcodeFragment;
 import com.abhi.barcode.frag.libv2.IScanResultHandler;
 import com.abhi.barcode.frag.libv2.ScanResult;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class MainActivity extends ActionBarActivity
@@ -67,7 +71,7 @@ public class MainActivity extends ActionBarActivity
         FragmentNoticias frg = new FragmentNoticias();
         ft.replace(R.id.fragment_container, frg);
         ft.commit();
-        
+
         
         //Listener de Galeria
         menuGaleria.setOnClickListener(new OnClickListener() {
@@ -77,9 +81,6 @@ public class MainActivity extends ActionBarActivity
             	
             	android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             	FragmentGaleria frg = new FragmentGaleria();
-                Bundle argumentos;
-
-                //frg.setArguments();
             	ft.replace(R.id.fragment_container, frg);
             	ft.commit();
             	cambiaColor("menuGaleria");	
@@ -119,21 +120,32 @@ public class MainActivity extends ActionBarActivity
         menuQR.setOnClickListener(new OnClickListener() {
             public void onClick(View v)
             {
+                final Handler handler = new Handler();
+                final Runnable Update = new Runnable() {
+                    public void run() {
+                        android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                        fragment = new BarcodeFragment();
+                        ft.replace(R.id.fragment_container, fragment);
+                        ft.commit();
+                        fragment.setScanResultHandler(MainActivity.this);
+                    }
+                };
+                final  Timer timador;
+                timador = new Timer();
+                timador.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        handler.post(Update);
+                        timador.cancel();
+                    }
+                }, 600, 10000);
 
             	menuQR.setTextColor(getResources().getColor(R.color.White));
-            	android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            	FragmentQr frg = new FragmentQr();
-            	ft.replace(R.id.fragment_container, frg);
-            	ft.commit();
             	cambiaColor("menuQR");
-                fragment = (BarcodeFragment)getSupportFragmentManager().findFragmentById(R.id.sample);
-                //fragment.setScanResultHandler(MainActivity.this);
-            	
             }
            
         });
-        
-       
+
     }
     @Override
     public void scanResult(ScanResult result) {

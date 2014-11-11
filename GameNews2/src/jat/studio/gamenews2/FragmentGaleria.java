@@ -1,12 +1,15 @@
 package jat.studio.gamenews2;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +18,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.Toast;
+
+import com.abhi.barcode.frag.libv2.BarcodeFragment;
 
 public class FragmentGaleria extends Fragment {
 	
@@ -28,19 +33,34 @@ public class FragmentGaleria extends Fragment {
 		//mContext = context;
 	//}
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-		View view=null;
-		view = inflater.inflate(R.layout.fragment_galeria, container,false);
-		View getview = this.getView();
-		gridView = (GridView) view.findViewById(R.id.gridView);
-		customGridAdapter = new GridViewAdapter(getActivity(), R.layout.row_grid, getData());
-		gridView.setAdapter(customGridAdapter);
-		gridView.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View v,
-					int position, long id) {
-						Toast.makeText(getActivity(), position + "#Selected",Toast.LENGTH_SHORT).show();
-			}
+        View view=null;
+        view = inflater.inflate(R.layout.fragment_galeria, container,false);
+        View getview = this.getView();
+        gridView = (GridView) view.findViewById(R.id.gridView);
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                customGridAdapter = new GridViewAdapter(getActivity(), R.layout.row_grid, getData());
+                gridView.setAdapter(customGridAdapter);
+                gridView.setOnItemClickListener(new OnItemClickListener() {
+                    public void onItemClick(AdapterView<?> parent, View v,
+                                            int position, long id) {
+                        Toast.makeText(getActivity(), position + "#Selected",Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        };
+        final Timer timador;
+        timador = new Timer();
+        timador.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(Update);
+                timador.cancel();
+            }
+        }, 600, 10000);
 
-		});
+
 		return view;
 	} 
 	private ArrayList<ImageItem> getData() {
