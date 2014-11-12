@@ -56,7 +56,7 @@ public class Listar extends AsyncTask<String,Void,List<String>> {
     @Override
     protected List<String> doInBackground(String... params) {
         String resp="";
-        String urlScript = "http://game-news.url.ph/imagenes/360/listar.php";
+        String urlScript = "http://game-news.url.ph/imagenes/previews/listar.php";
         post = new HttpPost(urlScript);
         String estado = ".";
         ArrayList<String> imagenes = new ArrayList<String>();
@@ -72,7 +72,7 @@ public class Listar extends AsyncTask<String,Void,List<String>> {
                 imagenes = new ArrayList<String>();
 
                 for(int i=0;i<json.length();i++){
-                    mFragment.addImagen("http://game-news.url.ph/imagenes/360/" + json.getString(i));
+                    mFragment.addImagen("http://game-news.url.ph/imagenes/previews/" + json.getString(i));
                 }
             }
         }catch(Exception e){
