@@ -10,14 +10,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 
 public class GridViewAdapter extends ArrayAdapter {
 	private Context context;
 	private int layoutResourceId;
-	private ArrayList data = new ArrayList();
+	private ArrayList<String> data = new ArrayList<String>();
 
-	public GridViewAdapter(Context context, int layoutResourceId,
-			ArrayList data) {
+	public GridViewAdapter(Context context, int layoutResourceId,ArrayList<String> data) {
 		super(context, layoutResourceId, data);
 		this.layoutResourceId = layoutResourceId;
 		this.context = context;
@@ -33,21 +34,19 @@ public class GridViewAdapter extends ArrayAdapter {
 			LayoutInflater inflater = ((Activity) context).getLayoutInflater();
 			row = inflater.inflate(layoutResourceId, parent, false);
 			holder = new ViewHolder();
-			//holder.imageTitle = (TextView) row.findViewById(R.id.text);
 			holder.image = (ImageView) row.findViewById(R.id.image);
 			row.setTag(holder);
 		} else {
 			holder = (ViewHolder) row.getTag();
 		}
 
-		ImageItem item = (ImageItem) data.get(position);
-		//holder.imageTitle.setText(item.getTitle());
-		holder.image.setImageBitmap(item.getImage());
+		/*ImageItem item = (ImageItem) data.get(position);
+		holder.image.setImageBitmap(item.getImage());*/
+        Picasso.with(context).load(data.get(position).toString()).into(holder.image);
 		return row;
 	}
 
 	static class ViewHolder {
-		//TextView imageTitle;
 		ImageView image;
 	}
 }
