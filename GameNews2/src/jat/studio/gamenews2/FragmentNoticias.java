@@ -78,7 +78,7 @@ public class FragmentNoticias extends Fragment{
             TextView descripcion=(TextView)item.findViewById(R.id.textViewDesc);
             descripcion.setText(noticia.get(position).getDescription());
             ImageView image=(ImageView)item.findViewById(R.id.imageView);
-            Picasso.with(context).load(noticia.get(position).getImage()).into(image);
+            Picasso.with(context).load(noticia.get(position).getImage()).resize(275,200).into(image);
             return(item);
 
         }
