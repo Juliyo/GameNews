@@ -73,6 +73,7 @@ public class Listar extends AsyncTask<String,Void,List<String>> {
 
                 for(int i=0;i<json.length();i++){
                     mFragment.addImagen("http://game-news.url.ph/imagenes/previews/" + json.getString(i));
+                    mFragment.addImagen360("http://game-news.url.ph/imagenes/360/" + json.getString(i));
                 }
             }
         }catch(Exception e){

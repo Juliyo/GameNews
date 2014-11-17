@@ -17,14 +17,13 @@ public class GridViewAdapter extends ArrayAdapter {
 	private Context context;
 	private int layoutResourceId;
 	private ArrayList<String> data = new ArrayList<String>();
-
+    private String url;
 	public GridViewAdapter(Context context, int layoutResourceId,ArrayList<String> data) {
 		super(context, layoutResourceId, data);
 		this.layoutResourceId = layoutResourceId;
 		this.context = context;
 		this.data = data;
 	}
-
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row = convertView;
