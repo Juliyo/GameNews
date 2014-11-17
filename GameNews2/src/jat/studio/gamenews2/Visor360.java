@@ -3,6 +3,8 @@ package jat.studio.gamenews2;
 /**
  * Created by Toni on 17/11/2014.
  */
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -67,6 +69,23 @@ public class Visor360 extends PLView {
                     this.startSensorialRotation();
 
                 }
+            }else{
+                AlertDialog.Builder dialogo = new AlertDialog.Builder(getActivity());
+                dialogo.setMessage("Código QR no válido. Por favor, inténtelo de nuevo.")
+                        .setTitle("Algo no va bien...");
+                dialogo.setCancelable(false);
+                dialogo.setPositiveButton("Entendido",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                                dialog.cancel();
+                                finish();
+                            }
+                        });
+                AlertDialog dialog = dialogo.create();
+                dialog.show();
+
+
             }
         }
         @Override

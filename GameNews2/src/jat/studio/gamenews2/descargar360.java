@@ -22,10 +22,12 @@ public class descargar360 extends AsyncTask<String,Void,Boolean> {
     private Visor360 visor;
     public descargar360(String url,View view,Visor360 visor){
         try {
-            direccion = new URL(url.toString());
             this.visor = visor;
             mView = view;
+            direccion = new URL(url.toString());
+
         } catch (MalformedURLException e) {
+            direccion = null;
             e.printStackTrace();
         }
 
@@ -40,8 +42,13 @@ public class descargar360 extends AsyncTask<String,Void,Boolean> {
     protected Boolean doInBackground(String... params) {
         boolean vuelta = false;
         try {
-            imagen  = BitmapFactory.decodeStream(direccion.openConnection().getInputStream());
-            vuelta = true;
+            if(direccion != null){
+                imagen  = BitmapFactory.decodeStream(direccion.openConnection().getInputStream());
+                vuelta = true;
+            }else{
+                imagen = null;
+                vuelta = false;
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -55,10 +62,7 @@ public class descargar360 extends AsyncTask<String,Void,Boolean> {
                 visor.ponerPanorama(imagen);
             }
         }else{
-            if(mView!=null){
-                //circulo.setVisibility(View.INVISIBLE);
-            }
+            visor.ponerPanorama(null);
         }
-
     }
 }

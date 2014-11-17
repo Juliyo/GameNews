@@ -1,6 +1,7 @@
 package jat.studio.gamenews2;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -146,10 +147,15 @@ public class MainActivity extends ActionBarActivity
         });
 
     }
+    //Resultados del escaneo QR
     @Override
     public void scanResult(ScanResult result) {
-        //btn.setEnabled(true);
-        Toast.makeText(MainActivity.this, result.getRawResult().getText(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(MainActivity.this, result.getRawResult().getText(), Toast.LENGTH_LONG).show();
+        if(result != null){
+            Intent i = new Intent(MainActivity.this,Visor360.class);
+            i.putExtra("URL",result.getRawResult().getText());
+            ((MainActivity) MainActivity.this).startActivity(i);
+        }
     }
 
     public void scanAgain(View v){
