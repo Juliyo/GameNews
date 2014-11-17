@@ -38,7 +38,7 @@ public class FragmentGaleria extends Fragment {
         AsyncTask task=new Listar(getActivity(),view,this).execute();
         gridView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,int position, long id) {
-                Toast.makeText(getActivity(), position + "#Selected",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"Has seleccionado la foto: " + position ,Toast.LENGTH_SHORT).show();
             }
         });
         return view;

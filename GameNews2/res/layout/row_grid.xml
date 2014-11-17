@@ -4,10 +4,8 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
     android:orientation="vertical"
-    android:padding="5dp" 
-    android:clickable="true"
-    android:background="@drawable/gid_seleccion_colores"
-    android:focusable="true">
+    android:padding="5dp"
+    android:background="@drawable/gid_seleccion_colores">
 
     <ImageView
         android:id="@+id/image"
