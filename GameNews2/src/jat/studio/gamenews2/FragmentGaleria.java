@@ -1,6 +1,7 @@
 package jat.studio.gamenews2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -39,6 +40,8 @@ public class FragmentGaleria extends Fragment {
         gridView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,int position, long id) {
                 Toast.makeText(getActivity(),"Has seleccionado la foto: " + position ,Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getActivity(),Visor360.class);
+                ((MainActivity) getActivity()).startActivity(i);
             }
         });
         return view;
