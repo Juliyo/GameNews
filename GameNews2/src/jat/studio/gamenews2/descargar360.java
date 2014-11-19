@@ -44,7 +44,13 @@ public class descargar360 extends AsyncTask<String,Void,Boolean> {
         try {
             if(direccion != null){
                 imagen  = BitmapFactory.decodeStream(direccion.openConnection().getInputStream());
-                vuelta = true;
+                if(imagen != null){
+                    if(imagen.getWidth() == 2048 && imagen.getHeight() == 1024){
+                        vuelta = true;
+                    }
+                }else{
+                    vuelta = false;
+                }
             }else{
                 imagen = null;
                 vuelta = false;
