@@ -16,12 +16,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
-
+import android.widget.ImageView;
+import java.util.Random;
 import com.abhi.barcode.frag.libv2.BarcodeFragment;
 import com.abhi.barcode.frag.libv2.IScanResultHandler;
 import com.abhi.barcode.frag.libv2.ScanResult;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -39,6 +38,9 @@ public class MainActivity extends ActionBarActivity
     private Button menuQR;
     private ActionBar decorView;
     private BarcodeFragment fragment;
+    private ImageView header;
+    private int azar = -1;
+    private Random aleatorio;
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
@@ -47,14 +49,13 @@ public class MainActivity extends ActionBarActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        int truso[] = {R.drawable.foto1,R.drawable.foto2,R.drawable.foto3,R.drawable.foto4,R.drawable.foto5};
         setContentView(R.layout.activity_main);
         //FragmentNoticias frgNoticias = new FragmentNoticias(MainActivity.this);
-        
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
         decorView =  this.getSupportActionBar();
-        
         // Set up the drawer. HAHAHAHAH
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
@@ -63,7 +64,18 @@ public class MainActivity extends ActionBarActivity
         menuNoticias = (Button)findViewById(R.id.menuNoticias);
         menuRevista = (Button)findViewById(R.id.menuRevista);
         menuQR = (Button)findViewById(R.id.menuQR);
-        
+        header = (ImageView)findViewById(R.id.fotoHeader);
+        if(azar == -1){
+            aleatorio = new Random();
+            azar = 2;
+            aleatorio.nextInt();
+            azar = aleatorio.nextInt(5);
+
+            header.setImageResource(truso[azar]);
+        }else{
+            //header.setImageResource(truso[azar2]);
+        }
+
         menuNoticias.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape2));
         menuNoticias.setTextColor(getResources().getColor(R.color.White));
         decorView.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape2));
