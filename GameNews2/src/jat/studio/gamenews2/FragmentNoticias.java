@@ -25,28 +25,25 @@ public class FragmentNoticias extends Fragment{
     private View view;
     private ListView listaNoticias;
 
-
     public FragmentNoticias(){
 
-		
 	}
-
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_noticias, container,false);
+        noticia=new ArrayList<Noticia>();
+        AsyncTask task=new ProgressTask(getActivity(),"http://game-news.url.ph/feed/",view,this).execute();
+        /*listaNoticias.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-                view = inflater.inflate(R.layout.fragment_noticias, container,false);
-
-                noticia=new ArrayList<Noticia>();
-                AsyncTask task=new ProgressTask(getActivity(),"http://game-news.url.ph/feed/",view,this).execute();
-
-
+            }
+        });*/
 		return view;
 	}
     public void mostrarLista(Activity activity){
-
-                AdaptadorNoticias adaptador=new AdaptadorNoticias(activity);
-                listaNoticias=(ListView)view.findViewById(R.id.listView);
-                listaNoticias.setAdapter(adaptador);
-
+        AdaptadorNoticias adaptador=new AdaptadorNoticias(activity);
+        listaNoticias=(ListView)view.findViewById(R.id.listView);
+        listaNoticias.setAdapter(adaptador);
     }
 
     public void setImage(String image) {

@@ -65,6 +65,9 @@ public class MainActivity extends ActionBarActivity
         menuRevista = (Button)findViewById(R.id.menuRevista);
         menuQR = (Button)findViewById(R.id.menuQR);
         header = (ImageView)findViewById(R.id.fotoHeader);
+        /*
+        Eleccion de la foto de la cabecera eligiendo un numero entero al azar.
+         */
         if(azar == -1){
             aleatorio = new Random();
             azar = 2;
@@ -72,10 +75,7 @@ public class MainActivity extends ActionBarActivity
             azar = aleatorio.nextInt(5);
 
             header.setImageResource(truso[azar]);
-        }else{
-            //header.setImageResource(truso[azar2]);
         }
-
         menuNoticias.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape2));
         menuNoticias.setTextColor(getResources().getColor(R.color.White));
         decorView.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape2));
@@ -120,9 +120,9 @@ public class MainActivity extends ActionBarActivity
             {
             	menuRevista.setTextColor(getResources().getColor(R.color.White));
             	android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            	/*FragmentGaleria frg = new FragmentGaleria(MainActivity.this);
+            	FragmentRevista frg = new FragmentRevista();
             	ft.replace(R.id.fragment_container, frg);
-            	ft.commit();*/
+            	ft.commit();
             	cambiaColor("menuRevista");
             	
             }

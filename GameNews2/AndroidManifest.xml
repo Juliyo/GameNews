@@ -33,6 +33,9 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="landscape">
         </activity>
+        <activity android:name=".RevistaActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden">
+        </activity>
     </application>
 
 </manifest>
