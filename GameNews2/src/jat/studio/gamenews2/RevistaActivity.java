@@ -45,6 +45,7 @@ public class RevistaActivity extends Activity {
         mCurlView.setBackgroundColor(0xFF202830);
         mCurlView.setEnableTouchPressure(true);
         mCurlView.set2PagesLandscape(true);
+        
     }
     @Override
     public void onPause() {

@@ -3,10 +3,11 @@ package jat.studio.gamenews2;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.List;
 
-public class PageAdapter extends FragmentPagerAdapter {
+public class PageAdapter extends FragmentStatePagerAdapter {
 
 
     private List<Fragment> fragments;

@@ -25,13 +25,14 @@ public class FragmentRevista extends Fragment {
         fragments = new Vector<Fragment>();
         viewPager = (ViewPager) view.findViewById(R.id.viewpagerRevista);
         AsyncTask task=new ListarRevistas(getActivity(),view,this).execute();
-        //introducirRevista("http://game-news.url.ph/wp-content/uploads/2014/10/PORTADA.png");
-        //introducirRevista("http://game-news.url.ph/wp-content/uploads/2014/10/PORTADA.png");
-       //inicializar();
+        //introducirRevista("http://game-news.url.ph/revistas/portadas/10-14","http://game-news.url.ph/revistas/10-14/");
+        //introducirRevista("http://game-news.url.ph/revistas/portadas/10-14","http://game-news.url.ph/revistas/10-14/");
+        //inicializar();
         return view;
     }
     public void introducirRevista(String urlPortada,String urlRevista){
-        Fragment kk = new itemRevista();
+
+        itemRevista kk = new itemRevista();
         Bundle bundle = new Bundle();
         bundle.putString("urlImagenPortada", urlPortada);
         bundle.putString("urlRevista",urlRevista);
@@ -42,5 +43,6 @@ public class FragmentRevista extends Fragment {
     public void inicializar() {
         adaptador = new PageAdapter(getActivity().getSupportFragmentManager(), fragments);
         viewPager.setAdapter(adaptador);
+        viewPager.getAdapter().notifyDataSetChanged();
     }
 }
