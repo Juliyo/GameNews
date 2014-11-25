@@ -2,6 +2,7 @@ package jat.studio.gamenews2;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -31,29 +33,35 @@ public class FragmentNoticias extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_noticias, container,false);
         noticia=new ArrayList<Noticia>();
+        listaNoticias=(ListView)view.findViewById(R.id.listView);
         AsyncTask task=new ProgressTask(getActivity(),"http://game-news.url.ph/feed/",view,this).execute();
-        /*listaNoticias.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });*/
+        listaNoticias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+                        Intent i = new Intent(getActivity(),NoticiaActivity.class);
+                        i.putExtra("titulo",noticia.get(position).getTitle());
+                        i.putExtra("contenido",noticia.get(position).getContenido());
+                        ((MainActivity) getActivity()).startActivity(i);
+                    }
+                });
 		return view;
 	}
     public void mostrarLista(Activity activity){
         AdaptadorNoticias adaptador=new AdaptadorNoticias(activity);
-        listaNoticias=(ListView)view.findViewById(R.id.listView);
         listaNoticias.setAdapter(adaptador);
     }
 
     public void setImage(String image) {
+
         noticia.get(noticia.size()-1).setImage(image);
     }
 
     public void setDescription(String description) {
         noticia.get(noticia.size()-1).setDescription(description);
     }
+    public void setContenido(String cont){
 
+        noticia.get(noticia.size()-1).setContenido(cont);
+    }
     public void setTitle(String title) {
         noticia.add(new Noticia());
         noticia.get(noticia.size()-1).setTitle(title);

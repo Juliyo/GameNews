@@ -7,6 +7,7 @@ public class Noticia {
     private String title;
     private String image;
     private String description;
+    private String contenido;
 
     public Noticia(){
 
@@ -35,5 +36,11 @@ public class Noticia {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+    public void setContenido(String contenido){
+        this.contenido = contenido;
+    }
+    public String getContenido() {
+        return contenido;
     }
 }

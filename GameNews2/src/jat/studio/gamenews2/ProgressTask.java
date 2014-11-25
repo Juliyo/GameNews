@@ -102,9 +102,17 @@ public class ProgressTask extends AsyncTask<String,Void,Boolean>{
                                             Elements metaDesc=doc.select("desc");
                                             String descripcion=metaDesc.attr("src");
                                             fragment.setDescription(descripcion);
+
                                         }
                                         first=false;
                                     }
+                                if(tag.equals("content:encoded")){
+
+                                    String contenido = parser.nextText();
+                                    Document doc= Jsoup.parse(contenido);
+                                    Elements metaNoticia=doc.select("noticia");
+                                    fragment.setContenido(metaNoticia.text());
+                                }
 
 
                                 break;
