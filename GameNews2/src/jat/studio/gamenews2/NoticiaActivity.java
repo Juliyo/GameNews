@@ -24,10 +24,13 @@ public class NoticiaActivity extends ActionBarActivity {
             titulo = extras.getString("titulo");
             contenido = extras.getString("contenido");
             tituloNoticia.setText(titulo);
-            contenidoNoticia.setText(contenido);
+            contenidoNoticia.setText(unescape(contenido));
         }else{
 
         }
+    }
+    private String unescape(String description) {
+        return description.replaceAll("\\\\n", "\\\n");
     }
 
 }

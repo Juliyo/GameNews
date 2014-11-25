@@ -110,8 +110,9 @@ public class ProgressTask extends AsyncTask<String,Void,Boolean>{
 
                                     String contenido = parser.nextText();
                                     Document doc= Jsoup.parse(contenido);
-                                    Elements metaNoticia=doc.select("noticia");
-                                    fragment.setContenido(metaNoticia.text());
+                                    Elements metaNoticia=doc.select("parra");
+                                    String src = metaNoticia.attr("hola");
+                                    fragment.setContenido(src);
                                 }
 
 
