@@ -46,7 +46,7 @@ public class Visor360 extends PLView {
             decorView = getActivity().getWindow().getDecorView();
             //Load panorama
             panorama = new PLSpherical2Panorama();
-            ((PLSpherical2Panorama)panorama).setPreviewImage(new PLImage(PLUtils.getBitmap(Visor360.this, R.raw.cargando), false));
+            //((PLSpherical2Panorama)panorama).setPreviewImage(new PLImage(PLUtils.getBitmap(Visor360.this, R.raw.cargando), false));
             if(url != null){
                 AsyncTask task=new descargar360(url,mainView,this).execute();
             }
