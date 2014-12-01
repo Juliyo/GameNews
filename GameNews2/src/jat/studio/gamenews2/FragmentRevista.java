@@ -41,8 +41,14 @@ public class FragmentRevista extends Fragment {
     }
 
     public void inicializar() {
-        adaptador = new PageAdapter(getActivity().getSupportFragmentManager(), fragments);
-        viewPager.setAdapter(adaptador);
-        viewPager.getAdapter().notifyDataSetChanged();
+        if(fragments != null){
+            adaptador = new PageAdapter(getActivity().getSupportFragmentManager(), fragments);
+        }
+        if(viewPager != null){
+            if(adaptador != null){
+                viewPager.setAdapter(adaptador);
+                viewPager.getAdapter().notifyDataSetChanged();
+            }
+        }
     }
 }

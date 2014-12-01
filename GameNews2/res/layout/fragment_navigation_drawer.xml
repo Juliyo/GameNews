@@ -31,15 +31,28 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
+                    android:layout_alignParentTop="false"
                     android:layout_marginTop="100dp"
                     android:background="@color/White"
-                    android:drawableLeft="@drawable/rss"
                     android:drawablePadding="-76dp"
-                    android:gravity="center_vertical|center"
                     android:padding="5dp"
                     android:text="Noticias"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:singleLine="true"
+                    android:gravity="center|fill_vertical"
+                    android:layout_alignParentBottom="false"
+                    android:layout_alignWithParentIfMissing="false"
+                    android:layout_alignParentEnd="false"
+                    android:layout_alignParentStart="false"
+                    android:drawableLeft="@drawable/trans"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView"
+                    android:src="@drawable/rss"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginLeft="10dp" />
 
                 <Button
                     android:id="@+id/menuRevista"
@@ -49,11 +62,23 @@
                     android:layout_alignParentRight="true"
                     android:layout_below="@+id/menuNoticias"
                     android:background="@color/White"
-                    android:drawableLeft="@drawable/revista"
                     android:drawablePadding="-83dp"
                     android:padding="5dp"
                     android:text="Revista"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:singleLine="true"
+                    android:gravity="center|fill_vertical"
+                    android:layout_alignParentEnd="false"
+                    android:layout_alignParentStart="false"
+                    android:drawableLeft="@drawable/trans"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView2"
+                    android:src="@drawable/revista"
+                    android:layout_below="@+id/menuNoticias"
+                    android:layout_marginLeft="10dp" />
 
                 <Button
                     android:id="@+id/menuGaleria"
@@ -63,11 +88,21 @@
                     android:layout_alignParentRight="true"
                     android:layout_below="@+id/menuRevista"
                     android:background="@color/White"
-                    android:drawableLeft="@drawable/galeria"
                     android:drawablePadding="-83dp"
                     android:padding="5dp"
                     android:text="Galería"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:singleLine="true"
+                    android:gravity="center|fill_vertical"
+                    android:drawableLeft="@drawable/trans"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView3"
+                    android:src="@drawable/galeria"
+                    android:layout_below="@+id/menuRevista"
+                    android:layout_marginLeft="10dp" />
 
                 <Button
                     android:id="@+id/menuQR"
@@ -77,11 +112,23 @@
                     android:layout_alignParentRight="true"
                     android:layout_below="@+id/menuGaleria"
                     android:background="@color/White"
-                    android:drawableLeft="@drawable/qr"
                     android:drawablePadding="-46dp"
                     android:padding="5dp"
                     android:text="Escanear QR"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:enabled="true"
+                    android:elegantTextHeight="false"
+                    android:singleLine="true"
+                    android:gravity="center|fill_vertical"
+                    android:drawableLeft="@drawable/trans"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView4"
+                    android:src="@drawable/qr"
+                    android:layout_below="@+id/menuGaleria"
+                    android:layout_marginLeft="10dp" />
             </RelativeLayout>
         </ScrollView>
 

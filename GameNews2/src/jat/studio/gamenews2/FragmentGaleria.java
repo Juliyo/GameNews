@@ -56,7 +56,11 @@ public class FragmentGaleria extends Fragment {
         imagenPosicion.add(url);
     }
     public void crearAdapter(){
-        customGridAdapter = new GridViewAdapter(getActivity(), R.layout.row_grid, imagenes);
+        if(imagenes != null){
+            if(getActivity() != null){
+                customGridAdapter = new GridViewAdapter(getActivity(), R.layout.row_grid, imagenes);
+            }
+        }
     }
     public void setAdapter() {
         gridView.setAdapter(customGridAdapter);
