@@ -1,20 +1,28 @@
 package jat.studio.gamenews2;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by Toni on 01/12/2014.
@@ -24,8 +32,12 @@ public class AcercaDe extends ActionBarActivity {
     public final static String ITEM_TITLE = "title";
     public final static String ITEM_CAPTION = "caption";
     private int contadorToni = 0;
+    private int contadorJuliyo = 0;
+    private int contadorAlejandro = 0;
     private String url;
     private Intent i;
+    private MediaPlayer mediaPlayer;
+    private MediaPlayer mediaAlejandro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +47,7 @@ public class AcercaDe extends ActionBarActivity {
         security.add(createItem("Picasso", "por Square, Inc."));
         security.add(createItem("BarcodeFraglib v2", "por ikermendi"));
         security.add(createItem("Android Page Curl", "por cags12"));
-
+        security.add(createItem("Jsoup","por Jonathan Hedley"));
         // create our list and custom adapter
         SeparatedListAdapter adapter = new SeparatedListAdapter(this);
         adapter.addSection("Game News - Sistemas Multimedia", new ArrayAdapter<String>(this,
@@ -45,6 +57,7 @@ public class AcercaDe extends ActionBarActivity {
 
         ListView list = (ListView)findViewById(R.id.listView);
         list.setAdapter(adapter);
+        mediaAlejandro = MediaPlayer.create(AcercaDe.this, R.raw.hit);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -52,9 +65,57 @@ public class AcercaDe extends ActionBarActivity {
                     case 1:
                         contadorToni = contadorToni+1;
                         if(contadorToni>=10){
-                            Toast.makeText(AcercaDe.this,"Oh no!\nHas encontrado mi secreto. Será mejor que no se lo cuentes a nadie... <3<3",Toast.LENGTH_LONG).show();
+                            Toast.makeText(AcercaDe.this,"Dj Rebollo In Session!!",Toast.LENGTH_LONG).show();
+                            mediaPlayer = MediaPlayer.create(AcercaDe.this, R.raw.toni);
+                            mediaPlayer.start();
                             contadorToni = 0;
                         }
+                        break;
+                    case 2:
+                        contadorJuliyo++;
+                        if(contadorJuliyo >= 10){
+                            final Dialog dialog = new Dialog(AcercaDe.this);
+                            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                            dialog.setContentView(R.layout.easter_video);
+                            dialog.setCancelable(false);
+                            dialog.show();
+                            final Handler handler = new Handler();
+                            final Runnable Update = new Runnable() {
+                                public void run() {
+                                    dialog.setCancelable(true);
+
+                                }
+                            };
+                            final Timer timador;
+                            timador = new Timer();
+                            timador.schedule(new TimerTask() {
+                                @Override
+                                public void run() {
+                                    handler.post(Update);
+                                    timador.cancel();
+                                }
+                            }, 4000, 4000);
+                            WindowManager.LayoutParams lp = new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+                            lp.copyFrom(dialog.getWindow().getAttributes());
+                            final VideoView videoview = (VideoView) dialog.findViewById(R.id.video_player_view);
+                            Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.video1);
+                            videoview.setVideoURI(uri);
+                            videoview.start();
+                            videoview.setZOrderOnTop(true);
+                            dialog.getWindow().setAttributes(lp);
+                            contadorJuliyo = 0;
+                        }
+                        break;
+                    case 3:
+                        contadorAlejandro++;
+                        if(contadorAlejandro>=10){
+
+                            contadorAlejandro=0;
+                        }else{
+                            mediaAlejandro.seekTo(0);
+                            mediaAlejandro.start();
+                        }
+
                         break;
                     case 5:
                         //PanoramaGL
@@ -86,7 +147,14 @@ public class AcercaDe extends ActionBarActivity {
                         i.setData(Uri.parse(url));
                         startActivity(i);
                         break;
+                    case 9:
+                        url = "http://jsoup.org/";
+                        i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(url));
+                        startActivity(i);
+                        break;
                 }
+
             }
         });
 
