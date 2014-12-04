@@ -97,11 +97,15 @@ public class AcercaDe extends ActionBarActivity {
                             }, 4000, 4000);
                             WindowManager.LayoutParams lp = new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
                             lp.copyFrom(dialog.getWindow().getAttributes());
+
+                            lp.screenBrightness = 1.0f;
+
                             final VideoView videoview = (VideoView) dialog.findViewById(R.id.video_player_view);
                             Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.video1);
                             videoview.setVideoURI(uri);
                             videoview.start();
                             videoview.setZOrderOnTop(true);
+
                             dialog.getWindow().setAttributes(lp);
                             contadorJuliyo = 0;
                         }
