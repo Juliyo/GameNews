@@ -2,6 +2,7 @@ package jat.studio.gamenews2;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -36,6 +37,10 @@ public class MainActivity extends ActionBarActivity
     private Button menuNoticias;
     private Button menuRevista;
     private Button menuQR;
+    private ImageView rss;
+    private ImageView revista;
+    private ImageView galeria;
+    private ImageView qr;
     private ActionBar decorView;
     private BarcodeFragment fragment;
     private ImageView header;
@@ -64,6 +69,10 @@ public class MainActivity extends ActionBarActivity
         menuNoticias = (Button)findViewById(R.id.menuNoticias);
         menuRevista = (Button)findViewById(R.id.menuRevista);
         menuQR = (Button)findViewById(R.id.menuQR);
+        rss=(ImageView)findViewById(R.id.imageView);
+        revista=(ImageView)findViewById(R.id.imageView2);
+        galeria=(ImageView)findViewById(R.id.imageView3);
+        qr=(ImageView)findViewById(R.id.imageView4);
         header = (ImageView)findViewById(R.id.fotoHeader);
         /*
         Eleccion de la foto de la cabecera eligiendo un numero entero al azar.
@@ -178,6 +187,10 @@ public class MainActivity extends ActionBarActivity
     	switch(boton){
     	case "menuNoticias":
     		menuNoticias.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape2));
+            rss.setImageResource(R.drawable.rssblanco);
+            revista.setImageResource(R.drawable.revista);
+            galeria.setImageResource(R.drawable.galeria);
+            qr.setImageResource(R.drawable.qr);
     		menuGaleria.setBackgroundDrawable(getResources().getDrawable(R.color.White));
     		menuRevista.setBackgroundDrawable(getResources().getDrawable(R.color.White));
     		menuQR.setBackgroundDrawable(getResources().getDrawable(R.color.White));
@@ -191,6 +204,10 @@ public class MainActivity extends ActionBarActivity
     	break;
     	case "menuGaleria":
     		menuGaleria.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape1));
+            galeria.setImageResource(R.drawable.galeriablanco);
+            rss.setImageResource(R.drawable.rss);
+            revista.setImageResource(R.drawable.revista);
+            qr.setImageResource(R.drawable.qr);
     		menuNoticias.setBackgroundDrawable(getResources().getDrawable(R.color.White));
     		menuRevista.setBackgroundDrawable(getResources().getDrawable(R.color.White));
     		menuQR.setBackgroundDrawable(getResources().getDrawable(R.color.White));
@@ -203,6 +220,10 @@ public class MainActivity extends ActionBarActivity
     	
     	case "menuQR":
     		menuQR.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape3));
+            qr.setImageResource(R.drawable.qrblanco);
+            galeria.setImageResource(R.drawable.galeria);
+            rss.setImageResource(R.drawable.rss);
+            revista.setImageResource(R.drawable.revista);
     		menuNoticias.setBackgroundDrawable(getResources().getDrawable(R.color.White));
     		menuGaleria.setBackgroundDrawable(getResources().getDrawable(R.color.White));
     		menuRevista.setBackgroundDrawable(getResources().getDrawable(R.color.White));
@@ -214,6 +235,10 @@ public class MainActivity extends ActionBarActivity
     	
     	case "menuRevista":
     		menuRevista.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape4));
+            revista.setImageResource(R.drawable.revistablanco);
+            qr.setImageResource(R.drawable.qr);
+            galeria.setImageResource(R.drawable.galeria);
+            rss.setImageResource(R.drawable.rss);
     		menuQR.setBackgroundDrawable(getResources().getDrawable(R.color.White));
     		menuNoticias.setBackgroundDrawable(getResources().getDrawable(R.color.White));
     		menuGaleria.setBackgroundDrawable(getResources().getDrawable(R.color.White));
@@ -278,8 +303,7 @@ public class MainActivity extends ActionBarActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            Intent i = new Intent(MainActivity.this, AcercaDe.class);
-            startActivity(i);
+            Intent i = new Intent(MainActivity.this,AcercaDe.class);
             return true;
         }
         return super.onOptionsItemSelected(item);
