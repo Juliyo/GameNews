@@ -30,6 +30,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AcercaDe"
+            android:theme="@style/NoActionBarThemeww">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".Visor360"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="landscape">
@@ -37,12 +44,13 @@
         <activity android:name=".RevistaActivity"
             android:configChanges="orientation|screenSize|keyboardHidden">
         </activity>
-        <activity android:name=".NoticiaActivity">
-
+        <activity android:name=".NoticiaActivity"
+            android:theme="@style/NoActionBarThemeww">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
-        <activity android:name=".AcercaDe">
 
-        </activity>
 
     </application>
 

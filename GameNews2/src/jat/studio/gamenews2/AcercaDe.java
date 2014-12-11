@@ -2,11 +2,16 @@ package jat.studio.gamenews2;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -16,7 +21,6 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 import android.widget.VideoView;
-
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -38,6 +42,7 @@ public class AcercaDe extends ActionBarActivity {
     private Intent i;
     private MediaPlayer mediaPlayer;
     private MediaPlayer mediaAlejandro;
+    private android.support.v7.app.ActionBar actBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +59,21 @@ public class AcercaDe extends ActionBarActivity {
                 R.layout.list_item, new String[] { "Toni Rebollo", "Julio Zamora", "Alejandro Martínez" }));
         adapter.addSection("Librerías de código abierto", new SimpleAdapter(this, security, R.layout.list_complex,
                 new String[] { ITEM_TITLE, ITEM_CAPTION }, new int[] { R.id.list_complex_title, R.id.list_complex_caption }));
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            toolbar.setTitleTextColor(getResources().getColor(R.color.White));
+            setSupportActionBar(toolbar);
+
+            final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+            upArrow.setColorFilter(getResources().getColor(R.color.White), PorterDuff.Mode.SRC_ATOP);
+            getSupportActionBar().setHomeAsUpIndicator(upArrow);
+
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            //getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer);
+
+        }
 
         ListView list = (ListView)findViewById(R.id.listView);
         list.setAdapter(adapter);
@@ -168,5 +188,14 @@ public class AcercaDe extends ActionBarActivity {
         item.put(ITEM_TITLE, title);
         item.put(ITEM_CAPTION, caption);
         return item;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -2,7 +2,6 @@ package jat.studio.gamenews2;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -71,7 +70,7 @@ public class MainActivity extends ActionBarActivity
         menuQR = (Button)findViewById(R.id.menuQR);
         rss=(ImageView)findViewById(R.id.imageView);
         revista=(ImageView)findViewById(R.id.imageView2);
-        galeria=(ImageView)findViewById(R.id.imageView3);
+        galeria=(ImageView)findViewById(R.id.imagenPreviewNoticia);
         qr=(ImageView)findViewById(R.id.imageView4);
         header = (ImageView)findViewById(R.id.fotoHeader);
         /*

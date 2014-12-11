@@ -39,6 +39,7 @@ public class FragmentNoticias extends Fragment{
                     public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
                         Intent i = new Intent(getActivity(),NoticiaActivity.class);
                         i.putExtra("titulo",noticia.get(position).getTitle());
+                        i.putExtra("urlImagen",noticia.get(position).getImage());
                         i.putExtra("contenido",noticia.get(position).getContenido());
                         ((MainActivity) getActivity()).startActivity(i);
                     }

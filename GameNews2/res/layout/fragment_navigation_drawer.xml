@@ -105,7 +105,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:id="@+id/imageView3"
+                    android:id="@+id/imagenPreviewNoticia"
                     android:src="@drawable/galeria"
                     android:layout_below="@+id/menuRevista"
                     android:layout_marginLeft="19dp"

@@ -26,6 +26,8 @@ public class RevistaActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.revista_activity);
         String url = null;
+        mCurlView = (CurlView) findViewById(R.id.curl);
+        mCurlView.setBackgroundColor(0xFF202830);
         int index = 0;
         if (getLastNonConfigurationInstance() != null) {
             index = (Integer) getLastNonConfigurationInstance();
@@ -41,11 +43,11 @@ public class RevistaActivity extends Activity {
         decorView = getWindow().getDecorView();
     }
     public void iniciar(){
-        mCurlView = (CurlView) findViewById(R.id.curl);
+
         mCurlView.setBitmapProvider(new BitmapProvider());
         mCurlView.setSizeChangedObserver(new SizeChangedObserver());
         mCurlView.setCurrentIndex(index);
-        mCurlView.setBackgroundColor(0xFF202830);
+
         mCurlView.setEnableTouchPressure(true);
         mCurlView.set2PagesLandscape(true);
         
